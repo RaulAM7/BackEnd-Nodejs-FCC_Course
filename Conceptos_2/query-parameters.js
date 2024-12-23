@@ -16,20 +16,30 @@ router.get("/query-example", (req, res) => {
 
 // /products = {productId, catergory}
 
-router.get("/product", (req, res) => {
-    const {productId, category} = req.query
-    res.json({ProductID: productId, Category: category})
-})
+const productController = {
+    getProduct: (req, res) => {
+        const {productId, category} = req.query
+        res.json({ProductID: productId, Category: category})
+    } 
+} 
 
-router.get("/search", (req, res) => {
-    const {busqueda} = req.query
-    res.json({Búsqueda: busqueda})
-})
+const searchController = {
+    getSearch: (req, res) => {
+        const {busqueda} = req.query
+        res.json({Búsqueda: busqueda})
+    }
+}
 
-router.get("/page", (req, res) => {
-    const {number, size} = req.query
-    res.json({ Number: number, Size: size})
-})
+const pageController = {
+    getPage: (req, res) => {
+        const {number, size} = req.query
+        res.json({ Number: number, Size: size})
+    }
+}
+
+router.get("/product", pageController.getPage)
+router.get("/search", searchController.getSearch)
+router.get("/page", pageController.getPage)
 
 
 
