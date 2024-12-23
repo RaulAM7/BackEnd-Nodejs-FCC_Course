@@ -37,10 +37,19 @@ const pageController = {
     }
 }
 
+const nameController = {
+    getName: (req, res) => {
+        const {firstname, lastname} = req.query
+        res.json({name: `${firstname} ${lastname}`})
+    }
+}
+
+
+
 router.get("/product", pageController.getPage)
 router.get("/search", searchController.getSearch)
 router.get("/page", pageController.getPage)
-
+router.get("/name", nameController.getName)
 
 
 module.exports = router
