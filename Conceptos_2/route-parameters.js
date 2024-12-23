@@ -13,14 +13,43 @@ router.use(requestData)
 
 // Ejemplo de Route Parameter
 
-const routeUserBooks = '/user/:userId/book/:bookId'
+const routeUserBooks = '/user/:userId?/book/:bookId?'
 const handler = (req, res) => {
-    console.log('Abajo son los request parameters')
-    console.log(req.params)
-    console.log(`Este es el UserID: ${req.params.userId}`)
-    console.log(`Este es el BookID: ${req.params.bookId}`)
-    res.send(req.params)
+    if (req.params.userId && req.params.bookId)
+    {
+        console.log('Se proporcionó User ID y Book ID')
+        console.log(req.params)
+        console.log(`Este es el UserID: ${req.params.userId}`)
+        console.log(`Este es el BookID: ${req.params.bookId}`)
+        res.send(req.params)            
+    }
+    if (req.params.userId && !req.params.bookId)
+    {
+            console.log('Se proporcionó User ID pero NO Book ID')
+            console.log(req.params)
+            console.log(`Este es el UserID: ${req.params.userId}`)
+            console.log(`Este es el BookID: ${req.params.bookId}`)
+            res.send(req.params)            
+    }
+    if (!req.params.userId && req.params.bookId)
+    {
+            console.log('NO se proporcionó User ID pero SI Book ID')
+            console.log(req.params)
+            console.log(`Este es el UserID: ${req.params.userId}`)
+            console.log(`Este es el BookID: ${req.params.bookId}`)
+            res.send(req.params)            
+    }
+    if (!req.params.userId && !req.params.bookId)
+    {
+                console.log('NO se proporcionó User ID y NO Book ID')
+                console.log(req.params)
+                console.log(`Este es el UserID: ${req.params.userId}`)
+                console.log(`Este es el BookID: ${req.params.bookId}`)
+                res.send(req.params)            
+    }
 }
+
+
 router.get(routeUserBooks, handler)
 
 
