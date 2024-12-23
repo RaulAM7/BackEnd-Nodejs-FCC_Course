@@ -8,4 +8,12 @@ router.get("/query-example", (req, res) => {
 })
 
 
+// Estructura de una URL con query params
+// /route?param1key=param1value&param2key=param2value 
+
+
+
+
+
+
 module.exports = router
