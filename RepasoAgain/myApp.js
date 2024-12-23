@@ -16,6 +16,10 @@ const morgan = require('morgan')
 const helmet = require('helmet')
 const jwt = require('jsonwebtoken')
 const rateLImit = require('express-rate-limit')
+const compression = require("compression")
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/'})
+
 
 // ---------------DEPENDENCIAS - END-------------------------
 /*
@@ -79,6 +83,10 @@ app.use(morgan('dev'))
 // helmet -> Agrega encabezados HTTP para mejorar la seguridad de tu aplicación
 app.use(helmet())
 
+// compresion -> Comprime las respuestas HTTP para mejorar la velocidad
+app.use(compression())
+
+
 
 // middleware logger auxiliar printeador del body de la request
 const printRequestBody = (req, res, next) => {
@@ -90,15 +98,14 @@ app.use(printRequestBody)
 
 // middleware personalizado para manejo de errores
 const middlewareErrorChecker = (err, req, res, next) => {
-    console.error(err.stack)
+    console.error(`Este es el middleware ErrorChecker: ${err.stack}`)
     res.status(500).send('ALGO SALÓ MAL')
-    next
+    next()
 }
-
+app.use(middlewareErrorChecker)
 
 // MIDDLEWARES AVANZADOS
-/*
-// JWT Auth - Middleware de Autenticacion y Autorizacion 
+/* JWT Auth - Middleware de Autenticacion y Autorizacion 
 app.use((req, res, next) => {
     const token = req.headers['authorization']
     if (!token) return res.status(403).send('ERROR: NO AUTHORIZATION')
@@ -117,7 +124,7 @@ const limiter = rateLImit({
     windowMs: 15 * 60 * 1000, // 15 minutos
     max: 100, // Maximo de 100 solicitudes por IP
 })
-app.use(limiter)
+//app.use(limiter)
 
 
 // ---------------MIDDLEWARE - END-------------------------
