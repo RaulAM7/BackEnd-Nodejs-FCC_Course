@@ -4,9 +4,16 @@
  * ***************************************************/
  
 const bGround = require('fcc-express-bground');
-const myApp = require('./route-parameters');
+// Nos importamos los routers
+const jsfile1 = require('./route-parameters');
+const jsfile2 = require('./query-parameters');
+// Montamos el objeto app express del server
 const express = require('express');
 const app = express();
+
+// Configuramos los routers
+app.use(jsfile1);
+app.use(jsfile2);
 
 if (!process.env.DISABLE_XORIGIN) {
   app.use((req, res, next) => {
@@ -22,7 +29,7 @@ if (!process.env.DISABLE_XORIGIN) {
 }
 
 const port = process.env.PORT || 3000;
-bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, () => {
+bGround.setupBackgroundApp(app, app, __dirname).listen(port, () => {
   bGround.log(`Node is listening on port ${port}...`);
 });
 

@@ -188,6 +188,18 @@ app.get("/redirected", (req, res) => {
     res.send("You have been redirected")
 })
 
+// Class 10 Route Request Params 
+
+// GET /:word/echo
+
+app.get("/:word/echo", (req, res) => {
+    res.json({echo: req.params.word })
+})
+
+
+
+
+
 
 
 // ---------------ROUTES - CONTROLLERS - END-------------------------
