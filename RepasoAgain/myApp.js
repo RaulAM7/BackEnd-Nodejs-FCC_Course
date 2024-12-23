@@ -189,18 +189,6 @@ app.get("/redirected", (req, res) => {
 })
 
 
-// 10.- Ruta con query params
-
-app.get("/name", (req, res) => {
-    // Vamos a recibir una request con query params del estilo:
-    // /name?first=raul&last=rodriguez
-
-    let firstName = req.query.first
-    let lastName = req.query.last
-    
-    res.json( {name: `${firstName} ${lastName}`} ) 
-})
-
 
 // ---------------ROUTES - CONTROLLERS - END-------------------------
 
