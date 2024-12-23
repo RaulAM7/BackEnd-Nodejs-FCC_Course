@@ -61,3 +61,48 @@ module.exports = { saludar, sumarXY}
         -  
         -  
 */
+
+/*### Ejemplo práctico
+
+- **1.- Paquete instalado:**
+    
+    ```bash
+    bash
+    Copiar código
+    npm install cors
+    
+    ```
+    
+    - `cors` es un **paquete** descargado desde npm.
+    - Lo importas en tu código como un **módulo**:
+        
+        ```jsx
+        javascript
+        Copiar código
+        const cors = require('cors');
+        
+        ```
+        
+- **2.- Módulo externo integrado en el paquete Express:**
+    - Usas el módulo `express.static()` que viene integrado en Express:
+        
+        ```jsx
+        javascript
+        Copiar código
+        app.use(express.static('public'));
+        
+        ```
+        
+- **3.- Middleware personalizado:**
+    - Es un módulo creado por ti:
+        
+        ```jsx
+        javascript
+        Copiar código
+        app.use((req, res, next) => {
+            console.log('Middleware personalizado ejecutado');
+            next();
+        });
+        
+        ```
+*/
