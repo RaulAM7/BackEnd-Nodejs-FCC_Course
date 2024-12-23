@@ -19,13 +19,13 @@
     "start": "node server.js",
     "restart": "node --watch server.js"
   },
-  "description": "Esto es un repaso a este curso de FreeCodeCamp. This is the boilerplate code for the Basic Node and Express Challenges. Instructions for working on these challenges start at https://www.freecodecamp.org/learn/apis-and-microservices/basic-node-and-express/",
+  "description": "This is the boilerplate code for the Basic Node and Express Challenges. Instructions for working on these challenges start at https://www.freecodecamp.org/learn/apis-and-microservices/basic-node-and-express/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RaulAM7/BackEnd-Node-FCC-Nuevo-Node-Express.git"
   },
   "keywords": [],
-  "author": "raulAM7",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RaulAM7/BackEnd-Node-FCC-Nuevo-Node-Express/issues"
