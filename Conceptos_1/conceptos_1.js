@@ -25,3 +25,31 @@ const sumarXY = (x, y) =>
 module.exports = { saludar, sumarXY}
 
 
+// PAQUETES
+/*
+    Son colecciones de módulos relacionados emapquetados
+*/
+
+// DEPENDENCIAS
+/*
+    Son paquetes que tu aplicación necesita para funcionar
+    Se declaran en el package.json:
+        - dependencies: dependencias hoy y siempre
+        - devDependencies: dependencias solo necesarias durante desarrollo
+    
+    Se instalan usando npm install o yarn add
+*/
+
+/*
+Ejemplo de dependencias en package.json:
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.0",
+    "nodemon": "^2.0.0"
+  }
+}
+*/
