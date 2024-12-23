@@ -18,12 +18,13 @@ const jwt = require('jsonwebtoken')
 const rateLImit = require('express-rate-limit')
 
 // ---------------DEPENDENCIAS - END-------------------------
-
+/*
 // Class 1 - Meet the Node console
 console.log('Hello world')
 
 console.log('this is a change using nodemon')
 console.log('this is antoher change using nodemon')
+*/
 
 // ---------------MIDDLEWARE - START-------------------------
 
@@ -33,7 +34,7 @@ console.log('this is antoher change using nodemon')
 
 // Globales App
 const middlewareChecker = ((req, res, next) => {
-    console.log('Se ejecutan los middleware los middleware')
+    console.log('Se ejecutan los middleware')
     next()
 })
 app.use(middlewareChecker)
@@ -67,7 +68,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 // cookie-parser -> Analiza cookies de las solicitudes y las convierte ne un objeto accesible desde req.cookies
-app.use(cookiePArser())
+app.use(cookieParser())
 
 // cors -> Habilita CORS (Cross-Origin Resource Sharing) - Permite que tu API sea accesible desde dominios externos
 app.use(cors())
