@@ -59,8 +59,6 @@ app.use(loggerMiddleware)
 app.use(express.static(__dirname + "/public")) 
 app.use(express.static(__dirname + "/views")) // Le decimos a la app que en cualquier momento puede usar los archivos de ambos directorios 
 
-// Middleware de terceros
-app.use(bodyParser.json()) 
 
 
 // MIDDLEWARE ROOT LEVEL más usados
@@ -70,6 +68,10 @@ app.use(express.json())
 
 // express.urlencoded() -> Analiza datos enviados mediante formularios HTML y los convierte en un objeto accesible desde req.body
 app.use(express.urlencoded({extended: true}))
+
+// bodyparser -> package to parse de data coming from POST requests
+app.use(bodyParser.urlencoded({extended: false})) 
+app.use(bodyParser.json())
 
 // cookie-parser -> Analiza cookies de las solicitudes y las convierte ne un objeto accesible desde req.cookies
 app.use(cookieParser())
@@ -197,7 +199,12 @@ app.get("/:word/echo", (req, res) => {
 })
 
 
+// EJEMPLO DE RUTA POST
 
+app.post("/name", (req, res) => {
+    const {first, last} = req.query
+    res.json({name: `${first} ${last}`})
+})
 
 
 
