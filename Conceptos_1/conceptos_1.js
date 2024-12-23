@@ -1,5 +1,4 @@
-// MÓDULOS
-/*
+ /* MÓDULOS
 Son unidades de código reutilizable
 
 Una función, un controlador, una ruta de node, etc. Todo es un módulo
@@ -7,7 +6,6 @@ Una función, un controlador, una ruta de node, etc. Todo es un módulo
 Pueden ser locales (hechos por nosotros) o externos (debemos de instalarlos)
 
 Se importan con require() o import
-
 
 */
 
@@ -24,14 +22,12 @@ const sumarXY = (x, y) =>
 }
 module.exports = { saludar, sumarXY}
 
-
-// PAQUETES
-/*
+ 
+/* PAQUETES
     Son colecciones de módulos relacionados emapquetados
 */
 
-// DEPENDENCIAS
-/*
+/* DEPENDENCIAS
     Son paquetes que tu aplicación necesita para funcionar
     Se declaran en el package.json:
         - dependencies: dependencias hoy y siempre
@@ -40,8 +36,7 @@ module.exports = { saludar, sumarXY}
     Se instalan usando npm install o yarn add
 */
 
-/*
-Ejemplo de dependencias en package.json:
+/*Ejemplo de dependencias en package.json:
 {
   "dependencies": {
     "express": "^4.17.1",
@@ -52,4 +47,17 @@ Ejemplo de dependencias en package.json:
     "nodemon": "^2.0.0"
   }
 }
+*/
+
+/* LIBRERÍAS
+
+    Termino más general para describir a GRAN codigo reutilizable
+    Pueden ser uno o varios paquetes para proporcionar funcionalidades específicas
+    Ejemplos:
+        - React (UI) 
+        - Lodash (utilidades)
+        - Express (servidor web)
+        - 
+        -  
+        -  
 */
