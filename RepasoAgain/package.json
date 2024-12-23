@@ -1,13 +1,35 @@
 {
-  "name": "repasoagain",
-  "version": "1.0.0",
-  "main": "myApp.js",
+  "name": "fcc-learn-node-with-express",
+  "version": "0.1.0",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.14.0",
+    "express-rate-limit": "^7.5.0",
+    "fcc-express-bground": "git+https://github.com/freeCodeCamp/fcc-express-bground-pkg.git",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7"
+  },
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "restart": "node --watch server.js"
+  },
+  "description": "Esto es un repaso a este curso de FreeCodeCamp. This is the boilerplate code for the Basic Node and Express Challenges. Instructions for working on these challenges start at https://www.freecodecamp.org/learn/apis-and-microservices/basic-node-and-express/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaulAM7/BackEnd-Node-FCC-Nuevo-Node-Express.git"
   },
   "keywords": [],
   "author": "raulAM7",
   "license": "ISC",
-  "description": ""
+  "bugs": {
+    "url": "https://github.com/RaulAM7/BackEnd-Node-FCC-Nuevo-Node-Express/issues"
+  },
+  "homepage": "https://github.com/RaulAM7/BackEnd-Node-FCC-Nuevo-Node-Express#readme",
+  "devDependencies": {}
 }
