@@ -20,7 +20,7 @@ const userController =
         res.json({UserID: userId, OrderID: orderId})
     }
 }
-router.get("/user/:userId/order/:orderId")
+router.get("/user/:userId/order/:orderId", userController.getOneUserOrder)
 
 
 module.exports = router

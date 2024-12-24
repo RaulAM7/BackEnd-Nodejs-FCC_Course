@@ -8,6 +8,8 @@ const bGround = require('fcc-express-bground');
 const jsfile1 = require('./route-parameters');
 const jsfile2 = require('./query-parameters');
 const jsfile3 = require('./post-request');
+const jsfile4 = require('./dif-query-vs-post-params');
+
 // Montamos el objeto app express del server
 const express = require('express');
 const app = express();
@@ -16,6 +18,7 @@ const app = express();
 app.use(jsfile1);
 app.use(jsfile2);
 app.use(jsfile3);
+app.use(jsfile4);
 
 // middlewares static para servir archivos de las rutas staticas
 app.use(express.static(__dirname + "/public")) 
