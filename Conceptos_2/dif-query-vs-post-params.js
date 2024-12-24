@@ -15,12 +15,21 @@ const userController =
 {
     getOneUserOrder: (req, res) => {
         const {userId, orderId} = req.params
+        if (!userId || orderId)
+        {
+            return res.status(400).json({error: 'faltan argumentos'})
+        }
         res.json({UserID: userId, OrderID: orderId})
     },
     getOneUserProduct: (req, res) => {
         const {userId} = req.params
         const {category, minPrice, maxPrice} = req.query
-        res.json({category: category, priceRange: `${minPrice} - ${maxPrice}`})
+        
+        if (!userId || !category || !minPrice || !maxPrice)
+        {
+            return res.status(400).json({error: 'faltan argumentos'})
+        }
+        res.json({UserID: userId, category: category, priceRange: `${minPrice} - ${maxPrice}`})
 
     }
 }
@@ -35,6 +44,12 @@ const productController =
     getOneProductInfo: (req, res) => 
         {
         const {category, minPrice, maxPrice} = req.query
+        
+        if (!category || !minPrice || !maxPrice)
+        {
+            return res.status(400).json({error: 'faltan argumentos'})
+        }
+
         res.json({category: category, priceRange: `${minPrice} - ${maxPrice}`})
     }
 }
@@ -43,11 +58,9 @@ const productController =
 Crea una ruta `/user/:userId/products` que acepte un ID de usuario en el path 
 y parámetros de filtro en la query string (`category`, `minPrice`, `maxPrice`).
 
+Lo he añadido como un nuevo handler en el userController y simplemente añado una nueva ruta al final del todo
+
 */
-
-
-
-
 
 
 router.get("/user/:userId/order/:orderId", userController.getOneUserOrder)
