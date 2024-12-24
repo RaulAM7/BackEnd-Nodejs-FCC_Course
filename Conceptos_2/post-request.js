@@ -16,8 +16,13 @@ const formController =
     },
     postForm: (req, res) =>
     {
+        console.log(`Este es el Request Body:`)
         console.log(req.body)
         const {first, last} = req.body
+        if( !first || !last)
+        {
+            return res.status(400).json({error: 'faltan campos'})
+        }
         res.json({name: `${first} ${last}`})
     }
 }
