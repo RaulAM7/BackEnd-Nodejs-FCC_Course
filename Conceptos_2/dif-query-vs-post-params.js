@@ -38,7 +38,6 @@ const userController =
 Crea una ruta `/products` que acepte query parameters para filtrar productos por categoría y rango de precios:
 category=electronics&minPrice=100&maxPrice=500
 */
-
 const productController = 
 {
     getOneProductInfo: (req, res) => 
@@ -66,5 +65,9 @@ Lo he añadido como un nuevo handler en el userController y simplemente añado u
 router.get("/user/:userId/order/:orderId", userController.getOneUserOrder)
 router.get("/product", productController.getOneProductInfo)
 router.get("/user/:userId/products", userController.getOneUserProduct)
+
+
+
+
 
 module.exports = router
