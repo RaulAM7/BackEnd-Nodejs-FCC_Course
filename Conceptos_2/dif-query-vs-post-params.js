@@ -20,7 +20,27 @@ const userController =
         res.json({UserID: userId, OrderID: orderId})
     }
 }
-router.get("/user/:userId/order/:orderId", userController.getOneUserOrder)
 
+
+
+/* ### **Ejercicio 2: Manejar Query Parameters**
+
+Crea una ruta `/products` que acepte query parameters para filtrar productos por categoría y rango de precios:
+category=electronics&minPrice=100&maxPrice=500
+*/
+
+const productController = 
+{
+    getOneProductInfo: (req, res) => 
+        {
+        const {category, minPrice, maxPrice} = req.query
+        res.json({category: category, priceRange: `${minPrice} - ${maxPrice}`})
+    }
+}
+
+
+
+router.get("/user/:userId/order/:orderId", userController.getOneUserOrder)
+router.get("/product", productController.getOneProductInfo)
 
 module.exports = router

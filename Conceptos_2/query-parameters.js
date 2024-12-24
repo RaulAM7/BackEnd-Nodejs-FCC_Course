@@ -46,7 +46,7 @@ const nameController = {
 
 
 
-router.get("/product", pageController.getPage)
+router.get("/products", pageController.getPage)
 router.get("/search", searchController.getSearch)
 router.get("/page", pageController.getPage)
 router.get("/namee", nameController.getName)
