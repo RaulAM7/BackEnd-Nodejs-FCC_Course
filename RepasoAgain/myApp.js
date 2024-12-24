@@ -201,11 +201,20 @@ app.get("/:word/echo", (req, res) => {
 
 // EJEMPLO DE RUTA POST
 
-app.post("/name", (req, res) => {
-    const {first, last} = req.query
-    res.json({name: `${first} ${last}`})
-})
+// Clases 10 11 12
 
+const nameController = {
+    getFullName: (req, res) => {
+        const {first, last} = req.query
+        res.json({name: `${first} ${last}`})
+    },
+    postFullName: (req, res) => {
+        const {first, last} = req.query
+        res.json({name: `${first} ${last}`})
+    }
+}
+app.get("/name", nameController.getFullName)
+app.post("/name", nameController.postFullName)  
 
 
 
