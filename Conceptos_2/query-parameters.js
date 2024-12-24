@@ -49,7 +49,7 @@ const nameController = {
 router.get("/product", pageController.getPage)
 router.get("/search", searchController.getSearch)
 router.get("/page", pageController.getPage)
-router.get("/name", nameController.getName)
+router.get("/namee", nameController.getName)
 
 
 module.exports = router

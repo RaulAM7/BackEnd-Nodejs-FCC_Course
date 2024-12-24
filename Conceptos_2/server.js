@@ -18,7 +18,6 @@ app.use(jsfile2);
 app.use(jsfile3);
 
 // middlewares static para servir archivos de las rutas staticas
-
 app.use(express.static(__dirname + "/public")) 
 app.use(express.static(__dirname + "/views")) 
 
