@@ -2,7 +2,6 @@
 let express = require('express')
 let router = express.Router()
 
-
 /*  ### **Ejercicio 1: Manejar Route Parameters**
 
 Crea una ruta que reciba un ID de usuario y un ID de pedido en el path:
@@ -12,17 +11,19 @@ Crea una ruta que reciba un ID de usuario y un ID de pedido en el path:
 { "userId": "123", "orderId": "456" }
 
 */
-
 const userController = 
 {
     getOneUserOrder: (req, res) => {
         const {userId, orderId} = req.params
         res.json({UserID: userId, OrderID: orderId})
+    },
+    getOneUserProduct: (req, res) => {
+        const {userId} = req.params
+        const {category, minPrice, maxPrice} = req.query
+        res.json({category: category, priceRange: `${minPrice} - ${maxPrice}`})
+
     }
 }
-
-
-
 /* ### **Ejercicio 2: Manejar Query Parameters**
 
 Crea una ruta `/products` que acepte query parameters para filtrar productos por categoría y rango de precios:
@@ -38,9 +39,19 @@ const productController =
     }
 }
 
+/* ### **Extra: Combina Ambos**
+Crea una ruta `/user/:userId/products` que acepte un ID de usuario en el path 
+y parámetros de filtro en la query string (`category`, `minPrice`, `maxPrice`).
+
+*/
+
+
+
+
 
 
 router.get("/user/:userId/order/:orderId", userController.getOneUserOrder)
 router.get("/product", productController.getOneProductInfo)
+router.get("/user/:userId/products", userController.getOneUserProduct)
 
 module.exports = router
