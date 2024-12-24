@@ -10,7 +10,7 @@ const formController =
 {
     showForm: (req, res) => 
     {
-        const absolutePath = process.cwd() + '/public/views/form.html'
+        const absolutePath = process.cwd() + '/views/form.html'
         res.sendFile(absolutePath)
     }
 }
