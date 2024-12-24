@@ -17,6 +17,12 @@ app.use(jsfile1);
 app.use(jsfile2);
 app.use(jsfile3);
 
+// middlewares static para servir archivos de las rutas staticas
+
+app.use(express.static(__dirname + "/public")) 
+app.use(express.static(__dirname + "/views")) 
+
+
 if (!process.env.DISABLE_XORIGIN) {
   app.use((req, res, next) => {
     const allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];
